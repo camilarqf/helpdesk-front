@@ -20,7 +20,7 @@ export class TecnicoListComponent implements OnInit {
     dataCriacao: "03/01/2022"
   }]
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'acoes'];
+  displayedColumns: string[] = ['ID', 'nome', 'CPF', 'Email', 'acoes'];
   dataSource = new MatTableDataSource<Tecnico>(this.ELEMENT_DATA);
 
   constructor() { }
