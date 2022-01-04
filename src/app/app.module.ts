@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -17,12 +18,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-import { NavComponent } from './components/nav/nav.component';
-import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
-import { TecnicoListComponent } from './components/tecnico/tecnico-list/tecnico-list.component';
+import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login/login.component';
+import { NavComponent } from './components/nav/nav.component';
+import { TecnicoListComponent } from './components/tecnico/tecnico-list/tecnico-list.component';
 
 
 @NgModule({
@@ -52,6 +52,8 @@ import { LoginComponent } from './components/login/login/login.component';
     MatIconModule,
     MatListModule,
     MatCardModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
