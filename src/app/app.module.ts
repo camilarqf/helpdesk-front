@@ -25,6 +25,7 @@ import { LoginComponent } from "./components/login/login/login.component";
 import { NavComponent } from "./components/nav/nav.component";
 import { TecnicoListComponent } from "./components/tecnico/tecnico-list/tecnico-list.component";
 import { HttpClientModule } from '@angular/common/http';
+import { AuthInterceptorProvider } from "./interceptor/auth.interceptor";
 
 @NgModule({
   declarations: [
@@ -62,7 +63,7 @@ import { HttpClientModule } from '@angular/common/http';
     }),
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
