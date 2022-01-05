@@ -8,7 +8,6 @@ import { JwtHelperService } from "@auth0/angular-jwt";
   providedIn: "root",
 })
 export class AuthService {
-  
   jwtService: JwtHelperService = new JwtHelperService();
 
   constructor(private http: HttpClient) {}
@@ -27,8 +26,12 @@ export class AuthService {
   isAuthenticated() {
     let token = localStorage.getItem("token");
     if (token != null) {
-      return !this.jwtService.isTokenExpired(token)
+      return !this.jwtService.isTokenExpired(token);
     }
     return false;
+  }
+
+  logout() {
+    localStorage.clear();
   }
 }
