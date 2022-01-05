@@ -24,6 +24,7 @@ import { HomeComponent } from "./components/home/home.component";
 import { LoginComponent } from "./components/login/login/login.component";
 import { NavComponent } from "./components/nav/nav.component";
 import { TecnicoListComponent } from "./components/tecnico/tecnico-list/tecnico-list.component";
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { TecnicoListComponent } from "./components/tecnico/tecnico-list/tecnico-
       closeButton: true,
       progressBar: true,
     }),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
