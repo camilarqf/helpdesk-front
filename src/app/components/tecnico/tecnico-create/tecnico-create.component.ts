@@ -11,5 +11,5 @@ export class TecnicoCreateComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  checked = false;
 }
