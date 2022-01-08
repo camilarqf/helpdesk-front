@@ -31,3 +31,8 @@ button{
 mat-icon{
     opacity: .8;
 }
+
+.cadastrar{
+    background-color: #1f97c4;
+    color: white;
+}
