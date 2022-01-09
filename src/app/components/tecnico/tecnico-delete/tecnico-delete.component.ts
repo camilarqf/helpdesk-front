@@ -1,11 +1,9 @@
-import { Observable } from "rxjs";
-import { Component, OnInit } from "@angular/core";
-import { FormControl, Validators } from "@angular/forms";
-import { ActivatedRoute, Router } from "@angular/router";
-import { ToastrService } from "ngx-toastr";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
-import { Tecnico } from "./../../../../models/tecnico";
-import { TecnicoService } from "./../../../services/tecnico.service";
+import { Tecnico } from './../../../../models/tecnico';
+import { TecnicoService } from './../../../services/tecnico.service';
 
 @Component({
   selector: 'app-tecnico-delete',

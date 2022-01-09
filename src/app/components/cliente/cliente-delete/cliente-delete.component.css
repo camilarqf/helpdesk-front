@@ -1,0 +1,38 @@
+.container{
+    width: 35rem;
+    margin: auto;
+    padding: 1rem 1rem 3rem 1rem;
+    border-radius: .6rem;
+}
+
+.fullWidth{
+    width: 100%;
+}
+
+h1{
+    text-align: center;
+}
+
+img{
+    height: 12rem;
+    margin: auto;
+}
+
+.section{
+    margin-bottom: 1rem;
+    justify-content: space-between;
+    display: flex;
+}
+
+button{
+    margin-top: .5rem;
+}
+
+mat-icon{
+    opacity: .8;
+}
+
+.cadastrar{
+    background-color: #1f97c4;
+    color: white;
+}
