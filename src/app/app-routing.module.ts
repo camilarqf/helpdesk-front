@@ -1,3 +1,4 @@
+import { ClienteUpdateComponent } from './components/cliente/cliente-update/cliente-update.component';
 import { ClienteListComponent } from "./components/cliente/cliente-list/cliente-list.component";
 import { TecnicoDeleteComponent } from "./components/tecnico/tecnico-delete/tecnico-delete.component";
 import { NgModule } from "@angular/core";
@@ -33,6 +34,7 @@ const routes: Routes = [
         component: ClienteListComponent,
       },
       { path: "clientes/create", component: ClienteCreateComponent },
+      { path: "clientes/update/:id", component: ClienteUpdateComponent },
     ],
   },
 ];
