@@ -1,15 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Validators } from "@angular/forms";
+import { FormControl } from "@angular/forms";
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-chamado-create',
-  templateUrl: './chamado-create.component.html',
-  styleUrls: ['./chamado-create.component.css']
+  selector: "app-chamado-create",
+  templateUrl: "./chamado-create.component.html",
+  styleUrls: ["./chamado-create.component.css"],
 })
 export class ChamadoCreateComponent implements OnInit {
+  prioridade: FormControl = new FormControl(null, Validators.required);
+  status: FormControl = new FormControl(null, Validators.required);
+  titulo: FormControl = new FormControl(null, Validators.required);
+  descricao: FormControl = new FormControl(null, Validators.required);
+  tecnico: FormControl = new FormControl(null, Validators.required);
+  cliente: FormControl = new FormControl(null, Validators.required);
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  validaCampos(): boolean {
+    return (
+      this.cliente.valid &&
+      this.descricao.valid &&
+      this.prioridade.valid &&
+      this.status.valid &&
+      this.tecnico.valid &&
+      this.titulo.valid
+    );
   }
-
 }
