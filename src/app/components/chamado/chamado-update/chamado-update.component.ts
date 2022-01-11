@@ -1,4 +1,4 @@
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Chamado } from "./../../../../models/chamado";
 import { ChamadoService } from "./../../../services/chamado.service";
 import { Component, OnInit } from "@angular/core";
@@ -11,12 +11,11 @@ import { TecnicoService } from "./../../../services/tecnico.service";
 import { ToastrService } from "ngx-toastr";
 
 @Component({
-  selector: 'app-chamado-update',
-  templateUrl: './chamado-update.component.html',
-  styleUrls: ['./chamado-update.component.css']
+  selector: "app-chamado-update",
+  templateUrl: "./chamado-update.component.html",
+  styleUrls: ["./chamado-update.component.css"],
 })
 export class ChamadoUpdateComponent implements OnInit {
-
   chamado: Chamado = {
     id: "",
     dataAbertura: "",
@@ -46,12 +45,26 @@ export class ChamadoUpdateComponent implements OnInit {
     private tecnicoService: TecnicoService,
     private chamadoService: ChamadoService,
     private toastr: ToastrService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
+    this.chamado.id = this.route.snapshot.paramMap.get("id");
+    this.findById();
     this.findAllClientes();
     this.findAllTecnicos();
+  }
+
+  findById(): void {
+    this.chamadoService.findById(this.chamado.id).subscribe(
+      (response) => {
+        this.chamado = response;
+      },
+      (ex) => {
+        this.toastr.error(ex.error.error);
+      }
+    );
   }
 
   findAllClientes(): void {
@@ -66,10 +79,13 @@ export class ChamadoUpdateComponent implements OnInit {
     });
   }
 
-  create(): void {
-    this.chamadoService.create(this.chamado).subscribe(
+  update(): void {
+    this.chamadoService.update(this.chamado).subscribe(
       (response) => {
-        this.toastr.success("Chamado criado com sucesso", "Novo chamado");
+        this.toastr.success(
+          "Chamado atualizado com sucesso",
+          "Atualizar chamado"
+        );
         this.router.navigate(["chamados"]);
       },
       (ex) => {
@@ -87,5 +103,25 @@ export class ChamadoUpdateComponent implements OnInit {
       this.tecnico.valid &&
       this.titulo.valid
     );
+  }
+
+  retornaStatus(status: any): string {
+    if (status == "0") {
+      return "ABERTO";
+    } else if (status == "1") {
+      return "EM ANDAMENTO";
+    } else {
+      return "ENCERRADO";
+    }
+  }
+
+  retornaPrioridade(prioridade: any): string {
+    if (prioridade == "0") {
+      return "BAIXA";
+    } else if (prioridade == "1") {
+      return "MÉDIA";
+    } else {
+      return "ALTA";
+    }
   }
 }
